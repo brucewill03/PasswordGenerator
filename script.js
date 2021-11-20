@@ -39,18 +39,18 @@ function determineUppercase(){
       determineUppercase();
 
     }else if (uppercaseCheck === "yes" || uppercaseCheck ==="y"){
-      uppercaseCheck = true;
-      return uppercaseCheck;
+      
+      return true;
 
     }else if (uppercaseCheck === "no" || uppercaseCheck ==="n"){
-      uppercaseCheck = false;
-      return uppercaseCheck;
+      
+      return false;
     
-    }else {
+    }
       alert("Please answer Yes or No");
       determineUppercase();
-    }
-    return uppercaseCheck;
+    
+    
 }    
  //Function used to determine whether the user wants to include lowercase characters in the password
 function determineLowercase(){
@@ -68,12 +68,12 @@ function determineLowercase(){
     }else if (lowercaseCheck === "no" || lowercaseCheck ==="n"){
       lowercaseCheck = false;
       return lowercaseCheck;
-    
-    }else {
+    }
+   
       alert("Please answer Yes or No");
       determineLowercase();
-    }
-    return lowercaseCheck; 
+    
+    
   }  
 //Function used to determine whether the user wants to include numbers in the password
 function determineNumbers(){
@@ -85,18 +85,15 @@ function determineNumbers(){
       determineNumbers();
 
     }else if (numberCheck === "yes" || numberCheck ==="y"){
-      numberCheck = true;
-      return numberCheck;
+      return true;
 
     }else if (numberCheck === "no" || numberCheck ==="n"){
-      numberCheck = false;
-      return numberCheck;
+      return false;
     
-    }else {
+    }
       alert("Please answer Yes or No");
       determineNumbers();
-    }
-    return numberCheck;
+    
 }
 
 //Function is the user wants to use a special character
@@ -109,19 +106,16 @@ function determineSpecial(){
       determineSpecial();
 
     }else if (specialCheck === "yes" || specialCheck ==="y"){
-      specialCheck = true;
-      return specialCheck;
+      return true;
 
     }else if (specialCheck === "no" || specialCheck === "n"){
-      specialCheck = false;
-      return specialCheck;
+      return false;
     
-    }else {
+    }
       alert("Please answer Yes or No");
       determineSpecial();
-    }
-    return specialCheck;
-
+    
+    
 }
 
 //Function in order to use all the previous entries and generate a password using the random number generator
@@ -137,23 +131,25 @@ function generatePassword(){
   console.log(numberCheck);
   determineSpecial();
   console.log(specialCheck);
-  var lowercaseChar = ["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
-  var uppercaseChar = ["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"];
-  var numberChar = ["0,1,2,3,4,5,6,7,8,9"];
-  var specialChar = ["!,@,#,$,%,^,&,*,(,)"];
+  var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
+  var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numberChar = "0123456789";
+  var specialChar = "!@#$%^&*())";
   var characters = lowercaseChar;
 var password = "";
-if (uppercaseCheck && numberCheck && specialCheck){
-  characters += uppercaseChar + numberChar + specialChar;
+if (uppercaseCheck && numberCheck && specialCheck && lowercaseCheck){
+  characters += uppercaseChar + numberChar + specialChar + lowercaseChar;
 
 }else if (uppercaseCheck && numberCheck){
   characters += uppercaseChar + numberChar;
+}else if (uppercaseCheck && specialCheck){
+  characters += uppercaseChar + specialChar;
 
+}else if (uppercaseCheck && lowercaseCheck){
+  characters += uppercaseChar + lowercaseChar;
 }else if (numberCheck && specialCheck){
   characters += numberChar + specialChar;
 
-}else if (uppercaseCheck && specialCheck){
-  characters += uppercaseChar + specialChar;
 
 }else if (uppercaseCheck){
   characters += uppercaseChar;
@@ -164,8 +160,7 @@ if (uppercaseCheck && numberCheck && specialCheck){
 }else if (specialCheck){
   characters += specialChar;
 
-}else{
-  characters === lowercaseChar;
+
 }
 
   for(var i = 0; i < passwordLength; i++){
