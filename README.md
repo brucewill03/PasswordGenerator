@@ -12,4 +12,4 @@ This website will serve as a random password generator. It will allow user to ha
 # Website 
 https://brucewill03.github.io/PasswordGenerator/
 
-![ScreenShot1](https://github.com/brucewill03/PasswordGenerator/raw/main/Images/Screenshot5.png)
+![ScreenShot5](https://github.com/brucewill03/PasswordGenerator/raw/main/Images/Screenshot5.png)
